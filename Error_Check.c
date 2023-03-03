@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   Error_Check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: burakkarlidag <burakkarlidag@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 16:59:34 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/02/27 01:40:11 by burakkarlid      ###   ########.fr       */
+/*   Created: 2023/02/27 01:35:47 by burakkarlid       #+#    #+#             */
+/*   Updated: 2023/02/27 01:37:24 by burakkarlid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	error_check1(char **av)
 {
-	char	*str;
-	size_t	i;
+	char	*b;
+	int		size;
+	
+	size = ft_strlen(av[1]) - 1;
+	b = malloc(sizeof(char) * ft_strlen(av[1]));
+	b = av[1];
+	if (b[size] == 'r' && b[size - 1] == 'e'
+		&& b[size - 2] == 'b' && b[size - 3] == 46)
+			return(0);
+	else
+		return(1);
+	free(b);
+}
 
-	if (!s)
-		return (0);
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
-	if (ft_strlen(s) < len)
-		len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	i = 0;
-	while (i < len && s[i])
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+int	close_window(t_slng *stark)
+{
+	mlx_destroy_window(stark->mlx_ptr, stark->mlx_wintr);
+	exit(0);
 }

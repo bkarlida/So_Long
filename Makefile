@@ -1,27 +1,30 @@
-CFLAGS = -I./minilibx
+CFLAGS = -Wall -Wextra -Werror -I./minilibx
 LFLAGS = -framework AppKit -framework OpenGL -L./minilibx -lmlx
 MLX = ./minilibx/libmlx.a
-LIBFT = -I./LIBFT
-SRCS = so_long.c
+LIBFT = -I./libft
+GNL = ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+GNLOBJS = $(GNL:.c=.o)
+SRCS = so_long.c Error_Check.c key.c window.c
 OBJS = $(SRCS:.c=.o)
 NAME = so_long
 
 all : $(MLX) $(NAME)
 
 $(MLX) :
-	make bonus -C LIBFT
+	make bonus -C libft
 	make -C ./minilibx
 
-$(NAME) : $(OBJS)
-	gcc $(OBJS) $(LFLAGS) ./LIBFT/libft.a -o $(NAME)
+$(NAME) : $(OBJS) $(GNLOBJS)
+	gcc $(OBJS) $(GNLOBJS) $(LFLAGS) ./libft/libft.a -o $(NAME)
 
 clean:
 	rm -rf $(OBJS) $(NAME)
 
 fclean:
 	rm -rf $(OBJS) $(NAME)
+	rm -rf ./get_next_line/*.o
 	make clean -C ./minilibx
-	make fclean -C ./LIBFT
+	make fclean -C ./libft
 
 re : fclean all
 
