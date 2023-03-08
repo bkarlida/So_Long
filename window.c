@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 21:42:56 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/03/02 21:43:37 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:46:25 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,30 @@ void	image_to_window(t_slng	*stark)
 			{
 				mlx_put_image_to_window(stark->mlx_ptr,stark->mlx_wintr,
 					stark->img_player,x,y);
+				stark->player_x = x;
+				stark->player_y = y;
 			}
 			else if (stark->splt[k][i] == 'C')
 			{
 				mlx_put_image_to_window(stark->mlx_ptr,stark->mlx_wintr,
 					stark->img_collectible,x,y);
 			}
+			else if (stark->splt[k][i] == '0')
+			{
+				mlx_put_image_to_window(stark->mlx_ptr,stark->mlx_wintr,
+					stark->img_back,x,y);
+			}
+			
 			x += 64;
 			i++;
 		}
 		y += 64;
 		k++;
 	}
+}
+
+int	close_window(t_slng *stark)
+{
+	mlx_destroy_window(stark->mlx_ptr, stark->mlx_wintr);
+	exit(0);
 }
