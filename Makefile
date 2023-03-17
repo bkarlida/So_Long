@@ -5,7 +5,7 @@ LIBFT = -I./libft
 GNL = ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 PRINTF = -I./ft_printf
 GNLOBJS = $(GNL:.c=.o)
-SRCS = so_long.c Error_Check.c key.c window.c
+SRCS = so_long.c Error_Check.c key.c window.c Valid.c Error_Check_add.c window_player.c
 OBJS = $(SRCS:.c=.o)
 NAME = so_long
 
