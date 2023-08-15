@@ -51,5 +51,7 @@ Bu proje, bir oyun motoru kullanarak basit bir 2D oyun yapmayı amaçlar. Bu pro
     ```
 
     Bu komut, derleme sonrası oluşan dosyaları siler.
+   
+9. Projede boş klasör olursa ,aynı isimdeki dosyayı diğer repolardan çekebilirsiniz.
 
 Bu adımları izleyerek "Solong" projesini derleyebilir ve oynayabilirsiniz.
