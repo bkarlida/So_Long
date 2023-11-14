@@ -1,6 +1,6 @@
 # SoLong Projesi Anlatımı
 
-<img src="https://github.com/bkarlida/Cub3d/blob/master/Screenshot%202023-10-25%20at%2001.11.26.png" width="500">
+<img src="https://github.com/bkarlida/Cub3d/blob/master/Screenshot 2023-11-14 at 03.02.02.png" width="500">
 
 Bu proje, bir oyun motoru kullanarak basit bir 2D oyun yapmayı amaçlar. Bu projede, temel oyun döngüsü, grafik öğeler ve kullanıcı etkileşimleri yer alır.
 
